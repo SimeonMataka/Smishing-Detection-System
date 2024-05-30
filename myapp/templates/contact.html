@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        
+    <link href="static/css/styles.css" rel="stylesheet">
+
+
+</head>
+<body>
+    
+    <div class=" container">
+        <div class="header-content row">
+            <div class="form col-md" id="form1">
+        
+                <br>
+              
+                <form action="mailto:cis-028-19@must.ac.mw" method="POST" enctype="text/plain">
+
+                    <br>
+                    <h1>Contact Us</h1>
+
+                    <label for="Name" class="form__label">Your Name</label>
+                    <input type="text" class="form__input" name ='textHere' id="sms" placeholder="Enter Your Name" required="" />
+                    
+                    <label for="Email" class="form__label">Your Email</label>
+                    <input type="email" id="email" name="email" class="form__input" placeholder="Enter Your Email Address" required><br>
+                    
+                    <label for="subject" class="form__label">Subject</label>
+                    <input type="text" id="subject" name="subject" class="form__input" placeholder="Subject" required>
+
+                    <label for="Message" class="form__label">Message</label>
+                    <textarea id="message" name="message" class="form__input" rows="4" cols="50" placeholder="Type Your message Here" required></textarea><br>
+
+                    <button class="button" role="button" >submit</button>
+                </form>
+               
+            </div>
+           
+        </div>
+    
+    
+    </div>
+    <br>
+    <br>
+    <footer>
+        <div class="footer-content">
+          <div class="copyright">&copy; 2023 Smishing detectives</div>
+          <div class="footer-links">
+            <a href="{{ url_for('main.index') }}">Home</a>
+            <a href="{{ url_for('main.API') }}">API</a>
+            <a href="{{ url_for('main.about') }}">About</a>
+            <a href="">Contact</a>
+          </div>
+        </div>
+    </footer>
+       
+    
+</body>
+</html>

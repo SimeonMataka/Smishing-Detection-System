@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Message Classification API Documentation</title>
+     <!-- <link rel="stylesheet" type="text/css" href="static/css/style.css"> -->
+     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+     <!-- <link rel="stylesheet" href="css/animate.min.css" type="text/css"> -->
+     <link rel="stylesheet" href="css/style.css" type="text/css">
+     <link href="owl-carousel/owl.carousel.css" rel="stylesheet">
+     <link href="owl-carousel/owl.theme.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+     <!-- BootStrap -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+         
+     <link href="static/css/styles.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: black;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            text-align: center;
+            color: aliceblue;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .api-endpoint {
+            margin-top: 20px;
+        }
+
+        .request-response {
+            margin-top: 10px;
+        }
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#264653+0,213b45+100 */
+         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+        .blue {
+            background: linear-gradient(to bottom,  #264653 0%,#213b45 100%);
+        }
+
+        .container {
+            display: flex; /* Use flexbox to arrange elements side by side */
+        }
+
+        /* Style for each side */
+        .left-side {
+            flex: 2; /* Each side takes up an equal amount of space */
+            padding: 20px; /* Add some padding for spacing */
+           
+        }
+
+        .right-side {
+            flex: 8;
+            padding: 20px;
+            
+        }
+
+
+    </style>
+</head>
+<body class="blue">
+    
+        <h1>SMS Message Classification API Documentation</h1>
+    
+
+    <div class="container">
+        <div class="left-side">
+            <!-- Content for the left side -->
+            <h3><b>Contents</b></h3>
+            <h5><a href="#over">An Overview</a></h5>
+            <h5><a href="#end">Endpoint</a></h5>
+            <h5><a href="#exam">Request</a></h5>
+            <h5><a href="#glo">Response</a></h5>
+            <h5><a href="#use">Usage</a></h5>
+            <h5><a href="#error">Error Handling</a></h5>
+            <h5><a href="#notes">Notes</a></h5>
+            
+        </div>
+        <div class="right-side">
+            <!-- Content for the right side -->
+            <h4 id="over"><b>Overview</b></h4>
+            <p>The SMS Message Classification API is designed to classify SMS messages as either "Smishing" (fraudulent) or "Legitimate" based on their content. It uses a pre-trained machine learning model to make predictions. This documentation provides details on how to use the API, including endpoints, request and response formats, and examples.</p>
+            <h4 id="end"><b>Endpoint</b></h4>
+            <p><b>'/detect'(POST):</b><br>This endpoint allows you to detect whether an SMS message is "smishing" or "Legitimate". The endpoint is
+                by the following url: <a href="http://smishing-detector.onrender.com/detect">http://smishing-detector.onrender.com/detect</a>
+            </p>
+            <h4 id="exam"><b>Request</b></h4>
+            <p><b>Method: </b><code>'POST'</code> <br><br>
+               <b>URL:</b> <a href="http://smishing-detector.onrender.com/detect">http://smishing-detector.onrender.com/detect</a><br><br>
+               <b>Headers:</b><br>
+               &nbsp;&nbsp;Content-Type: <code>'application/json'</code><br><br>
+               <b>Request Body:</b><br>
+               &nbsp;&nbsp;JSON Object: Contains a single field:
+               &nbsp;&nbsp;&nbsp;'sms_message'(String required): The text of th SMS you want to analyze<br><br>
+               <b>Example Request:</b><br>
+               &nbsp; 
+               <code>
+                POST http://smishing-detector.onrender.com/detect<br>
+                &nbsp;Content-Type: application/json <br>
+                <br>
+                &nbsp;{<br>
+                    &nbsp;'sms_message': "This is a sample SMS message to be analyzed." <br>
+                    &nbsp;}
+              </code>  
+            </p>
+            <h4 id="glo"><b>Response</b></h4>
+            <P>
+                <b>Status Codes:</b><br>
+                &nbsp;&nbsp;'200 OK': The request was successful, and the analysis result is provided<br>
+                &nbsp;&nbsp;'400 Bad Request': The request is missing the required 'sms_message' field<br>
+                &nbsp;&nbsp;'500 Internal Server Error': An error occurred during processing<br><br>
+                <b>Example Response:</b><br>
+                &nbsp; 
+                <code>
+                 HTTP/1.1 200 OK<br>
+                 &nbsp;Content-Type: application/json <br>
+                 <br>
+                 &nbsp;{<br>
+                     &nbsp;'result': "Legitimate" <br>
+                     &nbsp;}
+               </code>  
+            </P>
+            <h4 id="glo"><b>Usage</b></h4>
+            <p><ol>
+                <li>Send a POST request to the '/detect' endpoint with a JSON payload containing the 'sms_message' field.</li>
+                <li>The API will preprocess the SMS message, vectorize it using a TF-IDF vectorizer,
+                    and make predictions using the pre-trained machine learning model.
+                </li>
+                <li>The result, indicating whether the SMS message is "Smishing" or "Legitimate", will be returned in response.</li>
+                <li>The SMS message and the result will be stored in the database for further analysis and auditing.</li>
+            </ol>
+           </p>
+           <h4 id="glo"><b>Error Handling</b></h4>
+           <p>
+            <ul>
+                <li>If the request does not contain the required 'sms_message' field, a '400 Bad Request' response with an error message is returned.</li>
+                <li>If an Internal server error occurs during processing, a '500 Internal Server Error' response is returned./li>
+            </ul>
+           </p>
+           <h4 id="glo"><b>Notes</b></h4>
+           <p>
+             <ul>
+                <li>Ensure that your application is running and listening on the specified endpoint before making requests to  API.</li>
+            
+             </ul>
+          </p>
+           
+        </div>
+
+        <h2></h2>
+        <p></p>
+
+
+    </div>
+</body>
+</html>

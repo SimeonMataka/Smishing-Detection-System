@@ -1,1 +1,1 @@
-# Smishing-Detection-System
+Smishing detection system using machine learning.
