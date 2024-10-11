@@ -1,1 +1,2 @@
-Smishing detection system using machine learning.
+**Smishing Detection System using Machine Learning**
+This project focuses on detecting smishing (SMS phishing) attacks by leveraging machine learning algorithms. The system analyzes SMS messages to identify malicious patterns and detect potential phishing attempts. It uses natural language processing (NLP) techniques to preprocess the text data, followed by a machine learning classifier that determines whether a message is legitimate or a phishing attempt. The goal of the system is to enhance SMS security by providing accurate, real-time detection, helping users avoid falling victim to smishing attacks.
